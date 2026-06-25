@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>headspace blog</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'VT323', monospace;
+    }
+
+    body {
+      background: url("home.png") no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    /* capa suave dreamy */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(2px);
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      padding: 40px 10px;
+      font-size: 40px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px cyan;
+    }
+
+    .blog {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .post {
+      width: min(600px, 90%);
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .post:hover {
+      transform: scale(1.02);
+    }
+
+    .title {
+      font-size: 28px;
+      color: cyan;
+      margin-bottom: 8px;
+    }
+
+    .text {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .glow {
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      background: cyan;
+      filter: blur(120px);
+      opacity: 0.2;
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .g1 { top: 10%; left: 10%; }
+    .g2 { bottom: 10%; right: 10%; animation-delay: 2s; }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+
+  <header>
+    HEADSPACE BLOG
+  </header>
+
+  <div class="blog" id="blog"></div>
+
+  <script>
+    const posts = [
+      { title: "entry 01", text: "everything feels soft here. too soft." },
+      { title: "entry 02", text: "i think the sky is breathing." },
+      { title: "entry 03", text: "don’t wake up yet." }
+    ];
+
+    const blog = document.getElementById("blog");
+
+    posts.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "post";
+      div.innerHTML = `
+        <div class="title">${p.title}</div>
+        <div class="text">${p.text}</div>
+      `;
+      blog.appendChild(div);
+    });
+  </script>
+</body>
+</html>
