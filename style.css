@@ -1,76 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  background: url("home.png") center/cover fixed;
-  font-family: system-ui;
-  overflow-x: hidden;
-  color: white;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background-image: url("home.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* soft veil */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(2px);
+#mewo {
+    position: absolute;
+
+    width: 120px;
+
+    bottom: 15%;
+    right: 12%;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
 }
 
-/* island */
-.island {
-  width: 620px;
-  margin: 60px auto;
-  padding: 26px;
-  border-radius: 26px;
-  background: rgba(10,10,15,0.35);
-  backdrop-filter: blur(12px);
-}
-
-/* header */
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.header h1 {
-  font-weight: 300;
-  letter-spacing: 6px;
-}
-
-/* panels */
-.panel {
-  margin-top: 16px;
-  padding: 14px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.04);
-}
-
-/* portal */
-.portal {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.portal img {
-  width: 150px;
-  height: 150px;
-  border-radius: 18px;
-  cursor: pointer;
-  transition: 0.3s;
-  opacity: 0.85;
-}
-
-.portal img:hover {
-  transform: scale(1.06);
-  opacity: 1;
-}
-
-/* cursor */
-#cursor {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-  position: fixed;
-  pointer-events: none;
-  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+#mewo:hover {
+    transform: scale(1.1);
 }
